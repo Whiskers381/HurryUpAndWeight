@@ -9,8 +9,8 @@ using Server;
 namespace Server.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20200905143959_Initial")]
-    partial class Initial
+    [Migration("20200905160745_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

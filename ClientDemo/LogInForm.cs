@@ -13,7 +13,7 @@ namespace ClientDemo
 {
     public partial class LogInForm : Form
     {
-        private string _defaultHost = @"https://localhost:44340/api";
+        private string _defaultHost = @"https://localhost:44340";
         public LogInForm()
         {
             InitializeComponent();

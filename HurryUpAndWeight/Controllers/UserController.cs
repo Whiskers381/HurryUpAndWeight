@@ -9,8 +9,8 @@ using Server;
 
 namespace Server.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class UserController : ControllerBase
     {
         private readonly UserContext _context;
@@ -20,104 +20,112 @@ namespace Server.Controllers
             _context = context;
         }
 
-        // GET: api/User
+        //GET: api/User
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public IActionResult GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return StatusCode(200, 23);
         }
 
-        // GET: api/User/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(string id)
-        {
-            var user = await _context.Users.FindAsync(id);
 
-            if (user == null)
-            {
-                return NotFound();
-            }
+        //    // GET: api/User
+        //    [HttpGet]
+        //    public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        //    {
+        //        return await _context.Users.ToListAsync();
+        //    }
 
-            return user;
-        }
+        //    // GET: api/User/5
+        //    [HttpGet("{id}")]
+        //    public async Task<ActionResult<User>> GetUser(string id)
+        //    {
+        //        var user = await _context.Users.FindAsync(id);
 
-        // PUT: api/User/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(string id, User user)
-        {
-            if (id != user.Name)
-            {
-                return BadRequest();
-            }
+        //        if (user == null)
+        //        {
+        //            return NotFound();
+        //        }
 
-            _context.Entry(user).State = EntityState.Modified;
+        //        return user;
+        //    }
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    // PUT: api/User/5
+        //    // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        //    // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        //    [HttpPut("{id}")]
+        //    public async Task<IActionResult> PutUser(string id, User user)
+        //    {
+        //        if (id != user.Name)
+        //        {
+        //            return BadRequest();
+        //        }
 
-            return NoContent();
-        }
+        //        _context.Entry(user).State = EntityState.Modified;
 
-        // POST: api/User
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
-        {
-            _context.Users.Add(user);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (UserExists(user.Name))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //        try
+        //        {
+        //            await _context.SaveChangesAsync();
+        //        }
+        //        catch (DbUpdateConcurrencyException)
+        //        {
+        //            if (!UserExists(id))
+        //            {
+        //                return NotFound();
+        //            }
+        //            else
+        //            {
+        //                throw;
+        //            }
+        //        }
 
-            return CreatedAtAction("GetUser", new { id = user.Name }, user);
-        }
+        //        return NoContent();
+        //    }
 
-        // DELETE: api/User/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<User>> DeleteUser(string id)
-        {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+        //    // POST: api/User
+        //    // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        //    // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        //    [HttpPost]
+        //    public async Task<ActionResult<User>> PostUser(User user)
+        //    {
+        //        _context.Users.Add(user);
+        //        try
+        //        {
+        //            await _context.SaveChangesAsync();
+        //        }
+        //        catch (DbUpdateException)
+        //        {
+        //            if (UserExists(user.Name))
+        //            {
+        //                return Conflict();
+        //            }
+        //            else
+        //            {
+        //                throw;
+        //            }
+        //        }
 
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
+        //        return CreatedAtAction("GetUser", new { id = user.Name }, user);
+        //    }
 
-            return user;
-        }
+        //    // DELETE: api/User/5
+        //    [HttpDelete("{id}")]
+        //    public async Task<ActionResult<User>> DeleteUser(string id)
+        //    {
+        //        var user = await _context.Users.FindAsync(id);
+        //        if (user == null)
+        //        {
+        //            return NotFound();
+        //        }
 
-        private bool UserExists(string id)
-        {
-            return _context.Users.Any(e => e.Name == id);
+        //        _context.Users.Remove(user);
+        //        await _context.SaveChangesAsync();
+
+        //        return user;
+        //    }
+
+        //    private bool UserExists(string id)
+        //    {
+        //        return _context.Users.Any(e => e.Name == id);
+        //    }
         }
     }
-}

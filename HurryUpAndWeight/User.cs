@@ -46,11 +46,18 @@ namespace Server
             //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=DistSysACW;");
 
             //https://www.roundthecode.com/dotnet/entity-framework/setting-up-your-dbcontext-for-entity-framework-in-dotnet-core
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("appsettings.json")
-                .Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("UserContext"));
+            //IConfigurationRoot configuration = new ConfigurationBuilder()
+            //    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            //    .AddJsonFile("appsettings.json")
+            //    .Build();
+            //optionsBuilder.UseSqlServer(configuration.GetConnectionString("UserContext"));
+
+
+
+
+
+
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Users;");
         }
     }
 }

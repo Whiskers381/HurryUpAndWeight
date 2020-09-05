@@ -1,6 +1,6 @@
 using System;
 
-namespace HurryUpAndWeight
+namespace Server
 {
     public class WeatherForecast
     {
