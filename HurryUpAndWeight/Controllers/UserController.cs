@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NetworkAPI;
+using System.IO;
 using Server;
 
 namespace Server.Controllers
@@ -20,12 +22,36 @@ namespace Server.Controllers
             _context = context;
         }
 
-        //GET: api/User
+        //GET: User
+        [ActionName("s")]
         [HttpGet]
         public IActionResult GetUsers()
         {
             return StatusCode(200, 23);
         }
+
+
+        //Post: /User/LogIn
+        //[ActionName("LogIn")]
+        //[HttpGet]
+        //public IActionResult LogIn()
+        //{
+        //    StreamReader bodyStream = new StreamReader(HttpContext.Request.Body);
+        //    string body = bodyStream.ReadToEnd();
+
+        //    JsonMirrors.User.NameAndPassword nameAndPassword = NetworkAPI.User.DeSerializeJson(body);
+
+        //    UserDatabaseAccess.CreateUser(_context, nameAndPassword.UserName, nameAndPassword.UserPassword);
+
+        //    return StatusCode(200);
+        //}
+
+        //[ActionName("LogIn2")]
+        //[HttpGet]
+        //public IActionResult LogIn2()
+        //{
+        //    return StatusCode(200);
+        //}
 
 
         //    // GET: api/User
@@ -127,5 +153,5 @@ namespace Server.Controllers
         //    {
         //        return _context.Users.Any(e => e.Name == id);
         //    }
-        }
+    }
     }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace NetworkAPI
 {
-    public class API
+    public static class API
     {
-
+        //public static HttpResponseMessage GetRequest(string url);
     }
 }

@@ -30,7 +30,7 @@ namespace ClientDemo
 
             try
             {
-                User user = User.LogOn(
+                User user = User.LogIn(
                 textBox_Host.Text,
                 textBox_UserName.Text,
                 textBox_Password.Text

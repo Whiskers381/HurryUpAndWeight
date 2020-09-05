@@ -10,8 +10,8 @@ namespace NetworkAPI
     {
         private static string _url = @"/user";
 
-        private string _name;
-        private string _password;
+        public string _name { get; protected set; }
+        public string _password { get; protected set; }
 
         private User(string name, string password)
         {
@@ -19,14 +19,16 @@ namespace NetworkAPI
             _password = password;
         }
 
-        public static async Task<User> LogOn(string url, string name, string password)
+        public static async Task<User> LogIn(string url, string name, string password)
         {
             User user = new User(name, password);
 
 
             HttpClient httpClient = new HttpClient();
-            string uri = url + _url + @"/LogOn";
-            HttpContent httpContent = new StringContent(user.ToString() , Encoding.UTF8, "application/json");
+            string uri = url + _url + @"/LogIn";
+
+
+            HttpContent httpContent = new StringContent(user.SerializeJson(), Encoding.UTF8, "application/json");
 
             HttpResponseMessage responseMessage = await httpClient.PostAsync(uri, httpContent);
 
@@ -41,9 +43,20 @@ namespace NetworkAPI
             }
         }
 
-        public override string ToString()
+        /// <summary>
+        /// Serializes User into Jason using the provided struct
+        /// </summary>
+        public string SerializeJson()
         {
-            return "var user = { name: \""+_name+"\", password: \""+_password+"\" }";
+            return JsonSerializer.Serialize(JsonMirrors.User.FormatNameAndPassword(this), typeof(JsonMirrors.User.NameAndPassword), null);
+        }
+
+        /// <summary>
+        /// Deserialize Json back into the eqivalent C# datastructure using the provided struct
+        /// </summary>
+        public static JsonMirrors.User.NameAndPassword DeSerializeJson(string serializedUser)
+        {
+            return (JsonMirrors.User.NameAndPassword)JsonSerializer.Deserialize(serializedUser, typeof(JsonMirrors.User.NameAndPassword));
         }
     }
 }
