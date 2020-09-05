@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.button_LogIn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_UserName = new System.Windows.Forms.Label();
             this.textBox_UserName = new System.Windows.Forms.TextBox();
             this.label_Host = new System.Windows.Forms.Label();
             this.textBox_Host = new System.Windows.Forms.TextBox();
@@ -48,14 +48,14 @@
             this.button_LogIn.UseVisualStyleBackColor = true;
             this.button_LogIn.Click += new System.EventHandler(this.button_LogIn_Click);
             // 
-            // label1
+            // label_UserName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 108);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "UserName:";
+            this.label_UserName.AutoSize = true;
+            this.label_UserName.Location = new System.Drawing.Point(23, 108);
+            this.label_UserName.Name = "label_UserName";
+            this.label_UserName.Size = new System.Drawing.Size(65, 15);
+            this.label_UserName.TabIndex = 3;
+            this.label_UserName.Text = "UserName:";
             // 
             // textBox_UserName
             // 
@@ -116,7 +116,7 @@
             this.Controls.Add(this.textBox_Host);
             this.Controls.Add(this.label_Host);
             this.Controls.Add(this.textBox_UserName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_UserName);
             this.Controls.Add(this.button_LogIn);
             this.Name = "LogInForm";
             this.Text = "LogIn";
@@ -128,7 +128,7 @@
 
         #endregion
         private System.Windows.Forms.Button button_LogIn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_UserName;
         private System.Windows.Forms.TextBox textBox_UserName;
         private System.Windows.Forms.Label label_Host;
         private System.Windows.Forms.TextBox textBox_Host;
