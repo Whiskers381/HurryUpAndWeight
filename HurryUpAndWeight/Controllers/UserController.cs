@@ -12,7 +12,7 @@ using Server;
 namespace Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[Action]")]
     public class UserController : ControllerBase
     {
         private readonly UserContext _context;
@@ -23,28 +23,27 @@ namespace Server.Controllers
         }
 
         //GET: User
-        [ActionName("s")]
         [HttpGet]
         public IActionResult GetUsers()
         {
-            return StatusCode(200, 23);
+            return StatusCode(200);
         }
 
 
         //Post: /User/LogIn
-        //[ActionName("LogIn")]
-        //[HttpGet]
-        //public IActionResult LogIn()
-        //{
-        //    StreamReader bodyStream = new StreamReader(HttpContext.Request.Body);
-        //    string body = bodyStream.ReadToEnd();
+        [ActionName("LogIn")]
+        [HttpGet]
+        public IActionResult LogIn()
+        {
+            //StreamReader bodyStream = new StreamReader(HttpContext.Request.Body);
+            //string body = bodyStream.ReadToEnd();
 
-        //    JsonMirrors.User.NameAndPassword nameAndPassword = NetworkAPI.User.DeSerializeJson(body);
+            //JsonMirrors.User.NameAndPassword nameAndPassword = NetworkAPI.User.DeSerializeJson(body);
 
-        //    UserDatabaseAccess.CreateUser(_context, nameAndPassword.UserName, nameAndPassword.UserPassword);
+            //UserDatabaseAccess.CreateUser(_context, nameAndPassword.UserName, nameAndPassword.UserPassword);
 
-        //    return StatusCode(200);
-        //}
+            return StatusCode(200, "Feature not implemented");
+        }
 
         //[ActionName("LogIn2")]
         //[HttpGet]
