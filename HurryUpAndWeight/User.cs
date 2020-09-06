@@ -51,6 +51,26 @@ namespace Server
                 return true;
             }
         }
+
+        public static bool LogIn(UserContext context, string name, string password)
+        {
+            User user = context.Users.Find(name);
+            if (user != null)
+            {
+                if (user.Password == password)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
     public class UserContext : DbContext
     {
