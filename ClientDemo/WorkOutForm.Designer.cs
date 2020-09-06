@@ -70,22 +70,22 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button_Finish_3 = new System.Windows.Forms.Button();
             this.groupBox_Set_3 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown_Reps_3 = new System.Windows.Forms.NumericUpDown();
+            this.button_Alt_Target_Met_3 = new System.Windows.Forms.Button();
+            this.button_Target_Met_3 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.groupBox_Target_3 = new System.Windows.Forms.GroupBox();
+            this.textBox_Target_Reps_3 = new System.Windows.Forms.TextBox();
+            this.label_Target_Reps_3 = new System.Windows.Forms.Label();
+            this.textBox_Target_Sets_3 = new System.Windows.Forms.TextBox();
+            this.label_Target_Sets_3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.groupBox_Exercise_3 = new System.Windows.Forms.GroupBox();
-            this.textBox_Target_Sets_3 = new System.Windows.Forms.TextBox();
-            this.label_Target_Sets_3 = new System.Windows.Forms.Label();
-            this.label_Target_Reps_3 = new System.Windows.Forms.Label();
-            this.textBox_Target_Reps_3 = new System.Windows.Forms.TextBox();
-            this.button_Alt_Target_Met_3 = new System.Windows.Forms.Button();
-            this.button_Target_Met_3 = new System.Windows.Forms.Button();
-            this.numericUpDown_Reps_3 = new System.Windows.Forms.NumericUpDown();
             this.groupBox_Target_1.SuspendLayout();
             this.groupBox_Exercise_1.SuspendLayout();
             this.groupBox_Set_1.SuspendLayout();
@@ -97,10 +97,10 @@
             this.groupBox_Exercise_2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.groupBox_Set_3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Reps_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.groupBox_Target_3.SuspendLayout();
             this.groupBox_Exercise_3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Reps_3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox_Target_1
@@ -486,6 +486,32 @@
             this.groupBox_Set_3.TabStop = false;
             this.groupBox_Set_3.Text = "First Set";
             // 
+            // numericUpDown_Reps_3
+            // 
+            this.numericUpDown_Reps_3.Location = new System.Drawing.Point(97, 35);
+            this.numericUpDown_Reps_3.Name = "numericUpDown_Reps_3";
+            this.numericUpDown_Reps_3.Size = new System.Drawing.Size(60, 23);
+            this.numericUpDown_Reps_3.TabIndex = 5;
+            // 
+            // button_Alt_Target_Met_3
+            // 
+            this.button_Alt_Target_Met_3.Location = new System.Drawing.Point(163, 22);
+            this.button_Alt_Target_Met_3.Name = "button_Alt_Target_Met_3";
+            this.button_Alt_Target_Met_3.Size = new System.Drawing.Size(75, 44);
+            this.button_Alt_Target_Met_3.TabIndex = 6;
+            this.button_Alt_Target_Met_3.Text = "Alternative Target Met";
+            this.button_Alt_Target_Met_3.UseVisualStyleBackColor = true;
+            // 
+            // button_Target_Met_3
+            // 
+            this.button_Target_Met_3.Location = new System.Drawing.Point(6, 22);
+            this.button_Target_Met_3.Name = "button_Target_Met_3";
+            this.button_Target_Met_3.Size = new System.Drawing.Size(75, 44);
+            this.button_Target_Met_3.TabIndex = 4;
+            this.button_Target_Met_3.Text = "Target Met";
+            this.button_Target_Met_3.UseVisualStyleBackColor = true;
+            this.button_Target_Met_3.Click += new System.EventHandler(this.button_Target_Met_1_Click);
+            // 
             // button10
             // 
             this.button10.Location = new System.Drawing.Point(163, 22);
@@ -523,6 +549,40 @@
             this.groupBox_Target_3.TabIndex = 1;
             this.groupBox_Target_3.TabStop = false;
             this.groupBox_Target_3.Text = "Target";
+            // 
+            // textBox_Target_Reps_3
+            // 
+            this.textBox_Target_Reps_3.Location = new System.Drawing.Point(135, 26);
+            this.textBox_Target_Reps_3.Name = "textBox_Target_Reps_3";
+            this.textBox_Target_Reps_3.ReadOnly = true;
+            this.textBox_Target_Reps_3.Size = new System.Drawing.Size(35, 23);
+            this.textBox_Target_Reps_3.TabIndex = 3;
+            // 
+            // label_Target_Reps_3
+            // 
+            this.label_Target_Reps_3.AutoSize = true;
+            this.label_Target_Reps_3.Location = new System.Drawing.Point(98, 29);
+            this.label_Target_Reps_3.Name = "label_Target_Reps_3";
+            this.label_Target_Reps_3.Size = new System.Drawing.Size(35, 15);
+            this.label_Target_Reps_3.TabIndex = 2;
+            this.label_Target_Reps_3.Text = "Reps:";
+            // 
+            // textBox_Target_Sets_3
+            // 
+            this.textBox_Target_Sets_3.Location = new System.Drawing.Point(43, 26);
+            this.textBox_Target_Sets_3.Name = "textBox_Target_Sets_3";
+            this.textBox_Target_Sets_3.ReadOnly = true;
+            this.textBox_Target_Sets_3.Size = new System.Drawing.Size(35, 23);
+            this.textBox_Target_Sets_3.TabIndex = 3;
+            // 
+            // label_Target_Sets_3
+            // 
+            this.label_Target_Sets_3.AutoSize = true;
+            this.label_Target_Sets_3.Location = new System.Drawing.Point(6, 29);
+            this.label_Target_Sets_3.Name = "label_Target_Sets_3";
+            this.label_Target_Sets_3.Size = new System.Drawing.Size(31, 15);
+            this.label_Target_Sets_3.TabIndex = 2;
+            this.label_Target_Sets_3.Text = "Sets:";
             // 
             // label7
             // 
@@ -568,66 +628,6 @@
             this.groupBox_Exercise_3.TabStop = false;
             this.groupBox_Exercise_3.Text = "Exercise_3";
             // 
-            // textBox_Target_Sets_3
-            // 
-            this.textBox_Target_Sets_3.Location = new System.Drawing.Point(43, 26);
-            this.textBox_Target_Sets_3.Name = "textBox_Target_Sets_3";
-            this.textBox_Target_Sets_3.ReadOnly = true;
-            this.textBox_Target_Sets_3.Size = new System.Drawing.Size(35, 23);
-            this.textBox_Target_Sets_3.TabIndex = 3;
-            // 
-            // label_Target_Sets_3
-            // 
-            this.label_Target_Sets_3.AutoSize = true;
-            this.label_Target_Sets_3.Location = new System.Drawing.Point(6, 29);
-            this.label_Target_Sets_3.Name = "label_Target_Sets_3";
-            this.label_Target_Sets_3.Size = new System.Drawing.Size(31, 15);
-            this.label_Target_Sets_3.TabIndex = 2;
-            this.label_Target_Sets_3.Text = "Sets:";
-            // 
-            // label_Target_Reps_3
-            // 
-            this.label_Target_Reps_3.AutoSize = true;
-            this.label_Target_Reps_3.Location = new System.Drawing.Point(98, 29);
-            this.label_Target_Reps_3.Name = "label_Target_Reps_3";
-            this.label_Target_Reps_3.Size = new System.Drawing.Size(35, 15);
-            this.label_Target_Reps_3.TabIndex = 2;
-            this.label_Target_Reps_3.Text = "Reps:";
-            // 
-            // textBox_Target_Reps_3
-            // 
-            this.textBox_Target_Reps_3.Location = new System.Drawing.Point(135, 26);
-            this.textBox_Target_Reps_3.Name = "textBox_Target_Reps_3";
-            this.textBox_Target_Reps_3.ReadOnly = true;
-            this.textBox_Target_Reps_3.Size = new System.Drawing.Size(35, 23);
-            this.textBox_Target_Reps_3.TabIndex = 3;
-            // 
-            // button_Alt_Target_Met_3
-            // 
-            this.button_Alt_Target_Met_3.Location = new System.Drawing.Point(163, 22);
-            this.button_Alt_Target_Met_3.Name = "button_Alt_Target_Met_3";
-            this.button_Alt_Target_Met_3.Size = new System.Drawing.Size(75, 44);
-            this.button_Alt_Target_Met_3.TabIndex = 6;
-            this.button_Alt_Target_Met_3.Text = "Alternative Target Met";
-            this.button_Alt_Target_Met_3.UseVisualStyleBackColor = true;
-            // 
-            // button_Target_Met_3
-            // 
-            this.button_Target_Met_3.Location = new System.Drawing.Point(6, 22);
-            this.button_Target_Met_3.Name = "button_Target_Met_3";
-            this.button_Target_Met_3.Size = new System.Drawing.Size(75, 44);
-            this.button_Target_Met_3.TabIndex = 4;
-            this.button_Target_Met_3.Text = "Target Met";
-            this.button_Target_Met_3.UseVisualStyleBackColor = true;
-            this.button_Target_Met_3.Click += new System.EventHandler(this.button_Target_Met_1_Click);
-            // 
-            // numericUpDown_Reps_3
-            // 
-            this.numericUpDown_Reps_3.Location = new System.Drawing.Point(97, 35);
-            this.numericUpDown_Reps_3.Name = "numericUpDown_Reps_3";
-            this.numericUpDown_Reps_3.Size = new System.Drawing.Size(60, 23);
-            this.numericUpDown_Reps_3.TabIndex = 5;
-            // 
             // WorkOutForm
             // 
             this.ClientSize = new System.Drawing.Size(606, 333);
@@ -636,6 +636,7 @@
             this.Controls.Add(this.groupBox_Exercise_1);
             this.Name = "WorkOutForm";
             this.Text = "WorkOut";
+            this.Load += new System.EventHandler(this.WorkOutForm_Load);
             this.groupBox_Target_1.ResumeLayout(false);
             this.groupBox_Target_1.PerformLayout();
             this.groupBox_Exercise_1.ResumeLayout(false);
@@ -649,11 +650,11 @@
             this.groupBox_Exercise_2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.groupBox_Set_3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Reps_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.groupBox_Target_3.ResumeLayout(false);
             this.groupBox_Target_3.PerformLayout();
             this.groupBox_Exercise_3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Reps_3)).EndInit();
             this.ResumeLayout(false);
 
         }
