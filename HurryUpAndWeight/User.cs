@@ -38,6 +38,10 @@ namespace Server
                 return false;
             }
         }
+        public static bool CreateUser(UserContext context, NetworkAPI.JsonMirrors.User.NameAndPassword nameAndPassword)
+        {
+            return CreateUser(context, nameAndPassword.UserName, nameAndPassword.UserPassword);
+        }
 
         public static bool Exists(UserContext context, string name)
         {
@@ -74,22 +78,7 @@ namespace Server
 
         public static bool LogIn(UserContext context, NetworkAPI.JsonMirrors.User.NameAndPassword nameAndPassword)
         {
-            User user = context.Users.Find(nameAndPassword.UserName);
-            if (user != null)
-            {
-                if (user.Password == nameAndPassword.UserPassword)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            return LogIn(context, nameAndPassword.UserName, nameAndPassword.UserPassword);
         }
     }
     public class UserContext : DbContext
