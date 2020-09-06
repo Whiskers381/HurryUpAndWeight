@@ -71,6 +71,26 @@ namespace Server
                 return false;
             }
         }
+
+        public static bool LogIn(UserContext context, NetworkAPI.JsonMirrors.User.NameAndPassword nameAndPassword)
+        {
+            User user = context.Users.Find(nameAndPassword.UserName);
+            if (user != null)
+            {
+                if (user.Password == nameAndPassword.UserPassword)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
     public class UserContext : DbContext
     {
