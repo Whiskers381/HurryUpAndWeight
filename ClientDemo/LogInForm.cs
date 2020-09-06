@@ -22,6 +22,7 @@ namespace ClientDemo
         private void Form1_Load(object sender, EventArgs e)
         {
             textBox_Host.Text = _defaultHost;
+            textBox_Password.PasswordChar = '*';
         }
 
         private async void button_LogIn_Click(object sender, EventArgs e)
@@ -78,6 +79,18 @@ namespace ClientDemo
             else
             {
                 MessageBox.Show("Failed to connect");
+            }
+        }
+
+        private void checkBox_ShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox_ShowPassword.Checked)
+            {
+                textBox_Password.PasswordChar = '\u0000';
+            }
+            else
+            {
+                textBox_Password.PasswordChar = '*';
             }
         }
     }

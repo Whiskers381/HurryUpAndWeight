@@ -37,6 +37,7 @@
             this.button_CheckConnection = new System.Windows.Forms.Button();
             this.textBox_Password = new System.Windows.Forms.TextBox();
             this.button_Create = new System.Windows.Forms.Button();
+            this.checkBox_ShowPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button_LogIn
@@ -104,7 +105,8 @@
             // 
             this.textBox_Password.Location = new System.Drawing.Point(94, 136);
             this.textBox_Password.Name = "textBox_Password";
-            this.textBox_Password.Size = new System.Drawing.Size(323, 23);
+            this.textBox_Password.PasswordChar = '*';
+            this.textBox_Password.Size = new System.Drawing.Size(209, 23);
             this.textBox_Password.TabIndex = 8;
             // 
             // button_Create
@@ -117,11 +119,23 @@
             this.button_Create.UseVisualStyleBackColor = true;
             this.button_Create.Click += new System.EventHandler(this.button_Create_Click);
             // 
+            // checkBox_ShowPassword
+            // 
+            this.checkBox_ShowPassword.AutoSize = true;
+            this.checkBox_ShowPassword.Location = new System.Drawing.Point(309, 140);
+            this.checkBox_ShowPassword.Name = "checkBox_ShowPassword";
+            this.checkBox_ShowPassword.Size = new System.Drawing.Size(108, 19);
+            this.checkBox_ShowPassword.TabIndex = 10;
+            this.checkBox_ShowPassword.Text = "Show Password";
+            this.checkBox_ShowPassword.UseVisualStyleBackColor = true;
+            this.checkBox_ShowPassword.CheckedChanged += new System.EventHandler(this.checkBox_ShowPassword_CheckedChanged);
+            // 
             // LogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 224);
+            this.Controls.Add(this.checkBox_ShowPassword);
             this.Controls.Add(this.button_Create);
             this.Controls.Add(this.textBox_Password);
             this.Controls.Add(this.button_CheckConnection);
@@ -149,6 +163,7 @@
         private System.Windows.Forms.Button button_CheckConnection;
         private System.Windows.Forms.TextBox textBox_Password;
         private System.Windows.Forms.Button button_Create;
+        private System.Windows.Forms.CheckBox checkBox_ShowPassword;
     }
 }
 
