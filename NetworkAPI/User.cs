@@ -67,6 +67,22 @@ namespace NetworkAPI
             }
         }
 
+        public static async Task<bool> CheckConnection(string url)
+        {
+            HttpClient httpClient = new HttpClient();
+            string uri = url + _url + @"/CheckConnection";
+
+            HttpResponseMessage responseMessage = await httpClient.GetAsync(uri);
+
+            switch (responseMessage.StatusCode)
+            {
+                case System.Net.HttpStatusCode.OK:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
         /// <summary>
         /// Serializes User into Jason using the provided struct
         /// </summary>
