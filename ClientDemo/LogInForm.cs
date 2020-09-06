@@ -24,15 +24,15 @@ namespace ClientDemo
             textBox_Host.Text = _defaultHost;
         }
 
-        private void button_LogIn_Click(object sender, EventArgs e)
+        private async void button_LogIn_Click(object sender, EventArgs e)
         {
             try
             {
-                User user = User.LogIn(
+                User user = await User.LogIn(
                 textBox_Host.Text,
                 textBox_UserName.Text,
                 textBox_Password.Text
-                ).Result;
+                );
 
                 MessageBox.Show("LogIn succesful");
 
@@ -44,15 +44,15 @@ namespace ClientDemo
             }
         }
 
-        private void button_Create_Click(object sender, EventArgs e)
+        private async void button_Create_Click(object sender, EventArgs e)
         {
             try
             {
-                User user = User.Create(
+                User user = await User.Create(
                 textBox_Host.Text,
                 textBox_UserName.Text,
                 textBox_Password.Text
-                ).Result;
+                );
 
                 MessageBox.Show("User creation succesful");
 
@@ -64,9 +64,9 @@ namespace ClientDemo
             }
         }
 
-        private void button_CheckConnection_Click(object sender, EventArgs e)
+        private async void button_CheckConnection_Click(object sender, EventArgs e)
         {
-            if(User.CheckConnection(textBox_Host.Text).Result)
+            if(await User.CheckConnection(textBox_Host.Text))
             {
                 MessageBox.Show("Connection is fine");
             }
