@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,8 +26,6 @@ namespace ClientDemo
 
         private void button_LogIn_Click(object sender, EventArgs e)
         {
-            string username = textBox_UserName.Text;
-
             try
             {
                 User user = User.LogIn(
@@ -43,6 +41,38 @@ namespace ClientDemo
             {
                 //more info:https://www.dotnetperls.com/messagebox-show
                 MessageBox.Show(error.Message);
+            }
+        }
+
+        private void button_Create_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                User user = User.Create(
+                textBox_Host.Text,
+                textBox_UserName.Text,
+                textBox_Password.Text
+                ).Result;
+
+                MessageBox.Show("User creation succesful");
+
+            }
+            catch (Exception error)
+            {
+                //more info:https://www.dotnetperls.com/messagebox-show
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void button_CheckConnection_Click(object sender, EventArgs e)
+        {
+            if(User.CheckConnection(textBox_Host.Text).Result)
+            {
+                MessageBox.Show("Connection is fine");
+            }
+            else
+            {
+                MessageBox.Show("Failed to connect");
             }
         }
     }
