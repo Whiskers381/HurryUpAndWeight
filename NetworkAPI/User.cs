@@ -8,7 +8,7 @@ namespace NetworkAPI
 {
     public class User
     {
-        private static string _url = @"/user";
+        private static string _url = @"/User";
 
         public string _name { get; protected set; }
         public string _password { get; protected set; }
@@ -35,6 +35,30 @@ namespace NetworkAPI
             switch (responseMessage.StatusCode)
             {
                 case System.Net.HttpStatusCode.OK:
+                    return user;
+                case System.Net.HttpStatusCode.Unauthorized:
+                    throw new UnauthorizedAccessException("Server Failed to validate credentials. Check UserName and Password");
+                default:
+                    throw new Exception("Unknown error occured during log in attempt");
+            }
+        }
+
+        public static async Task<User> Create(string url, string name, string password)
+        {
+            User user = new User(name, password);
+
+
+            HttpClient httpClient = new HttpClient();
+            string uri = url + _url + @"/Create";
+
+
+            HttpContent httpContent = new StringContent(user.SerializeJson(), Encoding.UTF8, "application/json");
+
+            HttpResponseMessage responseMessage = await httpClient.PostAsync(uri, httpContent);
+
+            switch (responseMessage.StatusCode)
+            {
+                case System.Net.HttpStatusCode.Created:
                     return user;
                 case System.Net.HttpStatusCode.Unauthorized:
                     throw new UnauthorizedAccessException("Server Failed to validate credentials. Check UserName and Password");
