@@ -34,8 +34,9 @@ namespace ClientDemo
                 textBox_Password.Text
                 );
 
-                MessageBox.Show("LogIn succesful");
-
+                this.Hide();
+                WorkOutForm workOutForm = new WorkOutForm(textBox_Host.Text, user);
+                workOutForm.ShowDialog();
             }
             catch(Exception error)
             {
@@ -53,6 +54,10 @@ namespace ClientDemo
                 textBox_UserName.Text,
                 textBox_Password.Text
                 );
+
+                this.Hide();
+                WorkOutForm workOutForm = new WorkOutForm(textBox_Host.Text, user);
+                workOutForm.ShowDialog();
 
                 MessageBox.Show("User creation succesful");
 
