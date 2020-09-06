@@ -35,14 +35,35 @@ namespace Server.Controllers
         [HttpGet]
         public IActionResult LogIn()
         {
-            //StreamReader bodyStream = new StreamReader(HttpContext.Request.Body);
-            //string body = bodyStream.ReadToEnd();
+            StreamReader bodyStream = new StreamReader(HttpContext.Request.Body);
+            string body = bodyStream.ReadToEndAsync().Result;
+            if (UserDatabaseAccess.LogIn(_context, NetworkAPI.User.DeSerializeJson(body)))
+            {
+                return StatusCode(200);
+            }
+            else
+            {
+                return StatusCode(403);
+            }
+        }
 
-            //JsonMirrors.User.NameAndPassword nameAndPassword = NetworkAPI.User.DeSerializeJson(body);
+        [ActionName("Create")]
+        [HttpPost]
+        public IActionResult Create()
+        {
+            StreamReader bodyStream = new StreamReader(HttpContext.Request.Body);
+            string body = bodyStream.ReadToEndAsync().Result;
 
-            //UserDatabaseAccess.CreateUser(_context, nameAndPassword.UserName, nameAndPassword.UserPassword);
+            JsonMirrors.User.NameAndPassword nameAndPassword = NetworkAPI.User.DeSerializeJson(body);
 
-            return StatusCode(200, "Feature not implemented");
+            if(UserDatabaseAccess.CreateUser(_context, nameAndPassword.UserName, nameAndPassword.UserPassword))
+            {
+                return StatusCode(201);
+            }
+            else
+            {
+                return StatusCode(403);
+            }
         }
 
         //[ActionName("LogIn2")]
