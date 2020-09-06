@@ -13,6 +13,8 @@ namespace NetworkAPI
         public string _name { get; protected set; }
         public string _password { get; protected set; }
 
+        public JsonMirrors.WorkOut.WorkOutGoal _currentWorkOutGoal { get; protected set; }
+
         private User(string name, string password)
         {
             _name = name;
@@ -80,6 +82,26 @@ namespace NetworkAPI
                     return true;
                 default:
                     return false;
+            }
+        }
+
+        public async Task<bool> NextWorkOut(string url)
+        {
+            HttpClient httpClient = new HttpClient();
+            string uri = url + _url + @"/GetNextWorkOut";
+
+
+            HttpContent httpContent = new StringContent(SerializeJson(), Encoding.UTF8, "application/json");
+
+            HttpResponseMessage responseMessage = await httpClient.PostAsync(uri, httpContent);
+
+            switch (responseMessage.StatusCode)
+            {
+                case System.Net.HttpStatusCode.OK:
+                    _currentWorkOutGoal = WorkOut.DeSerializeJson(await responseMessage.Content.ReadAsStringAsync());
+                    return true;
+                default:
+                    throw new Exception("Unknown error occured");
             }
         }
 
