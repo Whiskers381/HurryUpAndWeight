@@ -6,88 +6,132 @@
 	},
 	"item": [
 		{
-			"name": "LogIn",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"UserName\":\"Neo\",\"UserPassword\":\"TheOne\"}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "WorkOut",
+			"item": [
+				{
+					"name": "GetNext",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"WorkOutName\":\"WorkOutA\",\"Exercise_1\":{\"Name\":\"Squat\",\"Reps\":7,\"Sets\":5},\"Exercise_2\":{\"Name\":\"Over Head Press\",\"Reps\":5,\"Sets\":5},\"Exercise_3\":{\"Name\":\"Dead Lift\",\"Reps\":5,\"Sets\":1}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44340/User/GetNextWorkOut",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44340",
+							"path": [
+								"User",
+								"GetNextWorkOut"
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44340/User/LogIn",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44340",
-					"path": [
-						"User",
-						"LogIn"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Create",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"UserName\":\"Neo\",\"UserPassword\":\"TheOne\"}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "User",
+			"item": [
+				{
+					"name": "CheckConnection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44340/User/CheckConnection",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44340",
+							"path": [
+								"User",
+								"CheckConnection"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://localhost:44340/User/Create",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44340",
-					"path": [
-						"User",
-						"Create"
-					]
+				{
+					"name": "Create",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"UserName\":\"Neo\",\"UserPassword\":\"TheOne\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44340/User/Create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44340",
+							"path": [
+								"User",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LogIn",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"UserName\":\"Neo\",\"UserPassword\":\"TheOne\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44340/User/LogIn",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44340",
+							"path": [
+								"User",
+								"LogIn"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "CheckConnection",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:44340/User/CheckConnection",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44340",
-					"path": [
-						"User",
-						"CheckConnection"
-					]
-				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}
