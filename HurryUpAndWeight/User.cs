@@ -24,12 +24,32 @@ namespace Server
     {
         public static bool CreateUser(UserContext context, string name, string password)
         {
-            User user = new User() { Name = name, Password = password };
+            if(Exists(context, name))
+            {
+                User user = new User() { Name = name, Password = password };
 
-            context.Users.Add(user);
-            context.SaveChanges();
+                context.Users.Add(user);
+                context.SaveChanges();
 
-            return true;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool Exists(UserContext context, string name)
+        {
+
+            if (context.Users.Find(name) == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
     public class UserContext : DbContext
