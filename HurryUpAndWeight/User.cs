@@ -26,16 +26,16 @@ namespace Server
         {
             if(Exists(context, name))
             {
+                return false;
+            }
+            else
+            {
                 User user = new User() { Name = name, Password = password };
 
                 context.Users.Add(user);
                 context.SaveChanges();
 
                 return true;
-            }
-            else
-            {
-                return false;
             }
         }
         public static bool CreateUser(UserContext context, NetworkAPI.JsonMirrors.User.NameAndPassword nameAndPassword)
