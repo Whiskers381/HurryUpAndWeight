@@ -24,7 +24,8 @@ namespace Server.Controllers
 
         //GET: User
         [HttpGet]
-        public IActionResult GetUsers()
+        [ActionName("CheckConnection")]
+        public IActionResult CheckConnection()
         {
             return StatusCode(200);
         }
