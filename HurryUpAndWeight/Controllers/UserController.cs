@@ -27,19 +27,27 @@ namespace Server.Controllers
         [ActionName("CheckConnection")]
         public IActionResult CheckConnection()
         {
+            VolatileLogs.Add("CheckConnection");
             return StatusCode(200);
         }
 
+        [HttpGet]
+        [ActionName("Logger")]
+        public IActionResult Logger()
+        {
+            return StatusCode(200, VolatileLogs.Get());
+        }
 
         //Post: /User/LogIn
         [ActionName("LogIn")]
-        [HttpGet]
+        [HttpPost]
         public IActionResult LogIn()
         {
             StreamReader bodyStream = new StreamReader(HttpContext.Request.Body);
             string body = bodyStream.ReadToEndAsync().Result;
             if (UserDatabaseAccess.LogIn(_context, NetworkAPI.User.DeSerializeJson(body)))
             {
+                VolatileLogs.Add("LogIn: " + body);
                 return StatusCode(200);
             }
             else
@@ -59,6 +67,7 @@ namespace Server.Controllers
 
             if(UserDatabaseAccess.CreateUser(_context, nameAndPassword.UserName, nameAndPassword.UserPassword))
             {
+                VolatileLogs.Add("Create: " + body);
                 return StatusCode(201);
             }
             else
