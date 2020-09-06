@@ -16,6 +16,14 @@ namespace NetworkAPI
         public Exercise _exercise_2 { get; protected set; }
         public Exercise _exercise_3 { get; protected set; }
 
+        private WorkOut(string name, Exercise exercise_1, Exercise exercise_2, Exercise exercise_3)
+        {
+            _name = name;
+            _exercise_1 = exercise_1;
+            _exercise_2 = exercise_2;
+            _exercise_3 = exercise_3;
+        }
+
         /// <summary>
         /// Serializes User into Jason using the provided struct
         /// </summary>
