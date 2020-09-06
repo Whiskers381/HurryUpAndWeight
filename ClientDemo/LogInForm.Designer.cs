@@ -36,13 +36,14 @@
             this.label_Password = new System.Windows.Forms.Label();
             this.button_CheckConnection = new System.Windows.Forms.Button();
             this.textBox_Password = new System.Windows.Forms.TextBox();
+            this.button_Create = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_LogIn
             // 
             this.button_LogIn.Location = new System.Drawing.Point(94, 165);
             this.button_LogIn.Name = "button_LogIn";
-            this.button_LogIn.Size = new System.Drawing.Size(323, 34);
+            this.button_LogIn.Size = new System.Drawing.Size(159, 34);
             this.button_LogIn.TabIndex = 1;
             this.button_LogIn.Text = "Log In";
             this.button_LogIn.UseVisualStyleBackColor = true;
@@ -97,6 +98,7 @@
             this.button_CheckConnection.TabIndex = 7;
             this.button_CheckConnection.Text = "Check Connection";
             this.button_CheckConnection.UseVisualStyleBackColor = true;
+            this.button_CheckConnection.Click += new System.EventHandler(this.button_CheckConnection_Click);
             // 
             // textBox_Password
             // 
@@ -105,11 +107,22 @@
             this.textBox_Password.Size = new System.Drawing.Size(323, 23);
             this.textBox_Password.TabIndex = 8;
             // 
+            // button_Create
+            // 
+            this.button_Create.Location = new System.Drawing.Point(258, 165);
+            this.button_Create.Name = "button_Create";
+            this.button_Create.Size = new System.Drawing.Size(159, 34);
+            this.button_Create.TabIndex = 9;
+            this.button_Create.Text = "Create New User";
+            this.button_Create.UseVisualStyleBackColor = true;
+            this.button_Create.Click += new System.EventHandler(this.button_Create_Click);
+            // 
             // LogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 224);
+            this.Controls.Add(this.button_Create);
             this.Controls.Add(this.textBox_Password);
             this.Controls.Add(this.button_CheckConnection);
             this.Controls.Add(this.label_Password);
@@ -135,6 +148,7 @@
         private System.Windows.Forms.Label label_Password;
         private System.Windows.Forms.Button button_CheckConnection;
         private System.Windows.Forms.TextBox textBox_Password;
+        private System.Windows.Forms.Button button_Create;
     }
 }
 
