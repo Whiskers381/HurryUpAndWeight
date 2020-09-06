@@ -10,4 +10,10 @@
     <ProjectReference Include="..\NetworkAPI\NetworkAPI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="WorkOutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>
