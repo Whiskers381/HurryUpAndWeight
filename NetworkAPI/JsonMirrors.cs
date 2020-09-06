@@ -48,10 +48,22 @@ namespace NetworkAPI
             {
                 return new WorkOutGoal { WorkOutName = name,  Exercise_1 = exercise_1, Exercise_2 = exercise_2, Exercise_3 = exercise_3 };
             }
+            public static WorkOutGoal FormatWorkOutGoal(NetworkAPI.WorkOut workOut)
+            {
+                return new WorkOutGoal {
+                    WorkOutName = workOut._name,
+                    Exercise_1 = FormatExerciseGoal(workOut._exercise_1),
+                    Exercise_2 = FormatExerciseGoal(workOut._exercise_2),
+                    Exercise_3 = FormatExerciseGoal(workOut._exercise_3)};
+            }
 
             public static ExerciseGoal FormatExerciseGoal(string name, int reps, int sets)
             {
                 return new ExerciseGoal { Name = name, Reps = reps, Sets = sets };
+            }
+            public static ExerciseGoal FormatExerciseGoal(NetworkAPI.Exercise exercise)
+            {
+                return new ExerciseGoal { Name = exercise._name, Reps = exercise._reps, Sets = exercise._sets };
             }
         }
     }

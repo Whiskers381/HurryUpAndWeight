@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using NetworkAPI;
 using System.IO;
 using Server;
+using System.Text.Json;
 
 namespace Server.Controllers
 {
@@ -74,6 +75,22 @@ namespace Server.Controllers
             {
                 return StatusCode(401);
             }
+        }
+
+        [ActionName("GetNextWorkOut")]
+        public IActionResult GetNextWorkOut()
+        {
+            //"{\"WorkOutName\":\"WorkOutA\",\"Exercise_1\":{\"Name\":\"Squat\",\"Reps\":7,\"Sets\":5},\"Exercise_2\":{\"Name\":\"Over Head Press\",\"Reps\":5,\"Sets\":5},\"Exercise_3\":{\"Name\":\"Dead Lift\",\"Reps\":5,\"Sets\":1}}"
+            string ser = JsonSerializer.Serialize(
+                JsonMirrors.WorkOut.FormatWorkOutGoal(
+                    "WorkOutA",
+                    JsonMirrors.WorkOut.FormatExerciseGoal("Squat", 7, 5),
+                    JsonMirrors.WorkOut.FormatExerciseGoal("Over Head Press", 5, 5),
+                    JsonMirrors.WorkOut.FormatExerciseGoal("Dead Lift", 5, 1)),
+                typeof(JsonMirrors.WorkOut.WorkOutGoal),
+                null);
+
+            return StatusCode(200, ser);
         }
     }
 }
