@@ -44,7 +44,7 @@ namespace Server.Controllers
             }
             else
             {
-                return StatusCode(403);
+                return StatusCode(401);
             }
         }
 
@@ -63,7 +63,7 @@ namespace Server.Controllers
             }
             else
             {
-                return StatusCode(403);
+                return StatusCode(401);
             }
         }
 
