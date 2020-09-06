@@ -24,5 +24,35 @@ namespace NetworkAPI
                 return new NameAndPassword { UserName = user._name, UserPassword = user._password };
             }
         }
+
+        public class WorkOut
+        {
+            public struct WorkOutGoal
+            {
+                public string WorkOutName { get; set; }
+                
+                public ExerciseGoal Exercise_1 { get; set; }
+                public ExerciseGoal Exercise_2 { get; set; }
+                public ExerciseGoal Exercise_3 { get; set; }
+            }
+
+            public struct ExerciseGoal
+            {
+                public string Name { get; set; }
+                public int Reps { get; set; }
+
+                public int Sets { get; set; }
+            }
+
+            public static WorkOutGoal FormatWorkOutGoal(string name, ExerciseGoal exercise_1, ExerciseGoal exercise_2, ExerciseGoal exercise_3)
+            {
+                return new WorkOutGoal { WorkOutName = name,  Exercise_1 = exercise_1, Exercise_2 = exercise_2, Exercise_3 = exercise_3 };
+            }
+
+            public static ExerciseGoal FormatExerciseGoal(string name, int reps, int sets)
+            {
+                return new ExerciseGoal { Name = name, Reps = reps, Sets = sets };
+            }
+        }
     }
 }
