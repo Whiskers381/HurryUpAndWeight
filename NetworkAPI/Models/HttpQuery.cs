@@ -15,7 +15,7 @@ namespace NetworkAPI
 
         public void AddKeyValuePair(string key, string value)
         {
-            _uri +=@"?"+key+"="+value;
+            _uri += @"?"+key+"="+value;
         }
     }
 }
